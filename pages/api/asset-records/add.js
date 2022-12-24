@@ -6,7 +6,8 @@ export default async function handler(req, res) {
         try{
             await prisma.asset.create({
                 data : {
-                    asset_name : req.body.name
+                    asset_name : req.body.name,
+                    isDeleted : false
                 }
             })
             .then((response)=>{

@@ -1,4 +1,8 @@
 import {PrismaClient} from "@prisma/client";
+import {Table,Thead,Tbody,Tr,Th,Td,TableContainer} from '@chakra-ui/react'
+import Link from "next/link";
+import axios from "axios";
+import {useRouter} from "next/router"
 
 const prisma = new PrismaClient();
 export default function FamilyAsset({data = []}){
@@ -17,16 +21,17 @@ export default function FamilyAsset({data = []}){
                             <Thead>
                             <Tr className="text-base">
                                 <Th>Name</Th>
+                                <Th>Asset</Th>
                                 <Th>Action</Th>
                             </Tr>
                             </Thead>
                             <Tbody>
                         {data.map((e)=>(
-                            <Tr key={e.asset_id}>
-                                <Td className="font-medium">{e.asset_name}</Td>
+                            <Tr key={e.id}>
+                                <Td className="font-medium">{e.name}</Td>
+                                <Td className="font-medium">{e.asset}</Td>
                                 <Td className="flex gap-2">
-                                    <Link href={`/asset-records/edit/${e.asset_id}`} className="w-[70px] h-[30px] bg-green-600 text-white rounded font-semibold flex justify-center items-center">Update</Link>
-                                    <button className="w-[70px] h-[30px] bg-red-500 rounded font-semibold" onClick={()=>{handleDelete(e.asset_id)}}>Delete</button>
+                                    <button className="w-[70px] h-[30px] bg-red-500 rounded font-semibold" onClick={()=>{handleDelete(e.id)}}>Delete</button>
                                 </Td>
                             </Tr>
                         ))}                                               
@@ -48,7 +53,10 @@ export default function FamilyAsset({data = []}){
 export async function getServerSideProps(){
 
     const result = await prisma.familyAsset.findMany({
-        where : {
+        where :{
+            isDeleted : false
+        },
+        orderBy : {
             id : 'asc'
         }
     })

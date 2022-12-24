@@ -12,9 +12,7 @@ export default function Assets({data = []}){
 
     const handleDelete = async(asset_id)=>{
         
-        const data = {
-            asset_id : asset_id
-        }
+        
         const deleteAsset = await axios.delete(`http://localhost:3000/api/asset-records/delete/${asset_id}`)
         .then((res)=>{
             if(res.status == 200){
@@ -62,9 +60,12 @@ export default function Assets({data = []}){
                     <h3 className="font-semibold">No Asset, Please add some records..</h3>
                 </div>)}                    
                 
-                <div className="mt-5">
+                <div className="mt-5 flex gap-5">
                     <Link href={'/asset-records/add'} className="w-[100px] h-[40px] bg-sky-500 rounded font-semibold flex justify-center items-center text-white" >
-                    Add Record
+                    Add Asset
+                    </Link>
+                    <Link href={'/'} className="w-[120px] h-[40px] bg-gray-900 rounded font-semibold flex justify-center items-center text-white" >
+                    Home
                     </Link>                    
                 </div>
                 </div>                
@@ -76,6 +77,9 @@ export default function Assets({data = []}){
 export async function getServerSideProps(ctx){
 
     const result = await prisma.asset.findMany({
+        where : {
+            isDeleted : false
+        },
         orderBy : {
             asset_id : 'asc'
         }

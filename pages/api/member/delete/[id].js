@@ -4,22 +4,22 @@ const prisma = new PrismaClient();
 
 export default async function handleDelete(req, res){
     try{
-        const data = await prisma.asset.findUnique({
+        const data = await prisma.member.findUnique({
             where : {
-                asset_id : parseInt(req.query.id)
+                member_id : parseInt(req.query.id)
             }
         })
-        await prisma.asset.update({
+        await prisma.member.update({
             where : {
-                asset_id : parseInt(req.query.id)
+                member_id : parseInt(req.query.id)
             },
             data : {
-                asset_name : data.member_name,
+                member_name : data.member_name,
                 isDeleted : true
             }
         })
         .then(()=>{
-            res.status(200).json({message : "Asset was deleted"})
+            res.status(200).json({message : "Member was deleted"})
         })
     }
     catch(error){

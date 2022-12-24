@@ -13,18 +13,17 @@ datasource db {
 model Asset{
   asset_id      Int     @id @default(autoincrement())
   asset_name    String  
-  familyAsset FamilyAsset[]
+  isDeleted     Boolean
 }
 
 model Member{
   member_id       Int @id @default(autoincrement())
-  member_name     Int 
-  familyAsset FamilyAsset[]
+  member_name     String 
+  isDeleted       Boolean
 }
 model FamilyAsset{
-  id  Int @id
-  member   Member  @relation(fields: [member_id], references: [member_id]) 
-  member_id   Int
-  asset Asset @relation(fields: [asset_id], references: [asset_id])
-  asset_id  Int
+  id            Int     @id @default(autoincrement())
+  name          String
+  asset         String
+  isDeleted     Boolean
 }
