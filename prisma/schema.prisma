@@ -9,3 +9,22 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Asset{
+  asset_id      Int     @id @default(autoincrement())
+  asset_name    String  
+  familyAsset FamilyAsset[]
+}
+
+model Member{
+  member_id       Int @id @default(autoincrement())
+  member_name     Int 
+  familyAsset FamilyAsset[]
+}
+model FamilyAsset{
+  id  Int @id
+  member   Member  @relation(fields: [member_id], references: [member_id]) 
+  member_id   Int
+  asset Asset @relation(fields: [asset_id], references: [asset_id])
+  asset_id  Int
+}
