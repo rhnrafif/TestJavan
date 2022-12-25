@@ -25,5 +25,6 @@ model FamilyAsset{
   id            Int     @id @default(autoincrement())
   name          String
   asset         String
+  price         Int
   isDeleted     Boolean
 }

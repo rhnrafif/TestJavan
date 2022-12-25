@@ -5,12 +5,12 @@ const prisma = new PrismaClient();
 export default async function handleAdd(req, res){
 
     try{
-
         if(req.body.name !== ""){
             const result = await prisma.familyAsset.create({
             data : {
                 name : req.body.name,
                 asset : req.body.asset,
+                price : req.body.price,
                 isDeleted : false
             }
             })

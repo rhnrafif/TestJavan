@@ -3,7 +3,7 @@ import axios from "axios";
 import {useRouter} from "next/router"
 import {useForm} from "react-hook-form";
 
-export default function Add(){   
+export default function Add({name}){   
     
     //useform
     const {handleSubmit, register} = useForm();
@@ -30,11 +30,8 @@ export default function Add(){
                     price = 0
                 }
 
-                await axios.post(`http://localhost:3000/api/member/add-member/${e.name}`).then(()=>{})
-                await axios.post(`http://localhost:3000/api/asset-records/add-asset/${e.asset}`).then(()=>{})
-
                 const data = {
-                name : e.name,
+                name : name,
                 asset : e.asset,
                 price : price
                 }
@@ -45,7 +42,7 @@ export default function Add(){
                         router.push('/family-asset')
                     }
                 })
-            })           
+            })
         }
         catch(error){
             console.error(error)
@@ -55,17 +52,11 @@ export default function Add(){
     return(
         <>
             <main className='min-w-full min-h-screen bg-slate-100 flex justify-center items-center' >
-                <div className="w-[360px] h-[300px] p-4 rounded-lg flex flex-col gap-3 justify-around items-center bg-gray-900">
-                    <p className="text-white font-semibold text-xl">Family Asset List</p>
+                <div className="w-[360px] h-[200px] p-4 rounded-lg flex flex-col gap-3 justify-around items-center bg-gray-900">
+                    <p className="text-white font-semibold text-xl">{name} Asset List</p>
                     <form action="" className="flex flex-col items-center" autoComplete="off" onSubmit={handleSubmit(submitForm)} >
                         <div className="flex flex-col gap-2 items-center mb-4">
-                            <label htmlFor="name" className="text-base text-white">Name</label>
-                            <input className="rounded h-8 p-2" type="text" name="name" 
-                            {...register("name")}
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2 items-center mb-4">
-                            <label htmlFor="name" className="text-base text-white">Asset</label>
+                            <label htmlFor="name" className="text-base text-white">Asset Name</label>
                             <input className="rounded h-8 p-2" type="text" name="name" 
                             {...register("asset")}
                             />
@@ -79,4 +70,14 @@ export default function Add(){
             </main>
         </>
     )
+}
+
+export async function getServerSideProps(ctx){
+
+    const name = ctx.params.name;
+    return {
+        props:{
+            name : name
+        }
+    }
 }
