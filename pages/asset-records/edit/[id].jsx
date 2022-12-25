@@ -21,7 +21,7 @@ export default function Update({data}){
                 name : e.name
             }
 
-            axios.post("http://localhost:3000/api/asset-records/update", request)
+            axios.post("https://family-asset.vercel.app/api/asset-records/update", request)
             .then((res)=>{
                 if(res.status === 200){
                     router.push('/asset-records')

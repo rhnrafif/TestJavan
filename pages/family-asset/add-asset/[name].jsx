@@ -36,7 +36,7 @@ export default function Add({name}){
                 price : price
                 }
 
-                await axios.post("http://localhost:3000/api/family-asset/add", data)
+                await axios.post("https://family-asset.vercel.app/api/family-asset/add", data)
                 .then((res)=>{
                     if(res.status === 201){
                         router.push('/family-asset')

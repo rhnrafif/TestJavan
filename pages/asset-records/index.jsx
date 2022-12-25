@@ -13,7 +13,7 @@ export default function Assets({data = []}){
     const handleDelete = async(asset_id)=>{
         
         
-        const deleteAsset = await axios.delete(`http://localhost:3000/api/asset-records/delete/${asset_id}`)
+        const deleteAsset = await axios.delete(`https://family-asset.vercel.app/api/asset-records/delete/${asset_id}`)
         .then((res)=>{
             if(res.status == 200){
                 route.push('/asset-records')

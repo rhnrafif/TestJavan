@@ -17,7 +17,7 @@ export default function Add(){
                 name : e.name
             }
 
-            axios.post("http://localhost:3000/api/member/add", request)
+            axios.post("https://family-asset.vercel.app/api/member/add", request)
             .then((res)=>{
                 if(res.status === 201){
                     router.push('/member')

@@ -15,7 +15,7 @@ export default function Members({data = []}){
     //handle delete
     const handleDelete = async(id)=>{
         
-        const res = await axios.delete(`http://localhost:3000/api/member/delete/${id}`)
+        const res = await axios.delete(`https://family-asset.vercel.app/api/member/delete/${id}`)
         .then((res)=>{
             if(res.status === 200){
                 router.push('/member')

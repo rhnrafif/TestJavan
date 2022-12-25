@@ -13,7 +13,7 @@ export default function FamilyAsset({data = [], member}){
     const handleDelete = async(id)=>{
         
         
-        const deleteAsset = await axios.delete(`http://localhost:3000/api/family-asset/delete/${id}`)
+        const deleteAsset = await axios.delete(`https://family-asset.vercel.app/api/family-asset/delete/${id}`)
         .then((res)=>{
             if(res.status == 200){
                 router.push(`/family-asset/details/${member}`)
