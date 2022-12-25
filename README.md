@@ -17,6 +17,8 @@ The Family Asset App application is built using the React library with the NextJ
 - Add and Delete the assets of each family member
 - Get the total of the assets
 
+## Live Family Asset App
+Visit the [link](https://family-asset.vercel.app/) to the Family Asset app on vercel
 
 ## DbSchema
 The DbSchema folder consists of an ERD scheme image file and the query SQL file based on the case. This repository was created to fulfill requests for the Javan Test instructions.
