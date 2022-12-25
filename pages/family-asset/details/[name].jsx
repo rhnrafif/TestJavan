@@ -20,7 +20,7 @@ export default function FamilyAsset({data = [], member}){
             }
         })
         .catch((error)=>{
-            console.error(error)
+            
         })
     }
 

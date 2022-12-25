@@ -20,20 +20,19 @@ export default function FamilyAsset({data = []}){
                             <Thead>
                             <Tr className="text-base">
                                 <Th>Name</Th>
-                                <Th>Total Asset</Th>
-                                <Th>Total Value</Th>
+                                <Th>Assets</Th>
+                                <Th>Values</Th>
                                 <Th>Action</Th>
                             </Tr>
                             </Thead>
                             <Tbody>
-                                {console.info(data)}
                         {data.map((e,i)=>(
                             <Tr key={i}>
                                 <Td className="font-medium">{e.name}</Td>
                                 <Td className="font-medium">{e._count.asset}</Td>
                                 <Td className="font-medium">{e._sum.price}</Td>
                                 <Td className="flex gap-2">
-                                    <Link href={`/family-asset/details/${e.name}`} className="w-[70px] h-[30px] bg-sky-500 rounded font-semibold flex justify-center items-center">Details</Link>
+                                    <Link href={`/family-asset/details/${e.name}`} className="w-[70px] h-[30px] bg-gray-900 rounded font-semibold flex justify-center items-center text-white">Details</Link>
                                 </Td>
                             </Tr>
                         ))}                                               
@@ -77,17 +76,6 @@ export async function getServerSideProps(){
             asset : true,
         }
     })
-    
-    // const result = await prisma.familyAsset.findMany({
-        
-    //     where :{
-    //         isDeleted : false
-    //     },
-    //     orderBy : {
-    //         id : 'asc'
-    //     }       
-    
-    // })
 
     return{
         props:{

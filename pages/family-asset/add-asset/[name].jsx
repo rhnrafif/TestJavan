@@ -45,7 +45,7 @@ export default function Add({name}){
             })
         }
         catch(error){
-            console.error(error)
+            
         }
     }
 

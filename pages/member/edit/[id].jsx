@@ -29,14 +29,14 @@ export default function Update({data}){
             })
         }
         catch(error){
-            console.error(error)
+            
         }
     }
 
     return(
         <>
-            <main className='min-w-full min-h-screen bg-slate-100 flex justify-center items-center' >
-                <div className="w-[360px] h-[220px] p-4 rounded-lg flex flex-col gap-4 justify-around items-center bg-gray-900">
+            <main className='min-w-full min-h-screen bg-slate-100' >
+                <div className="w-[360px] h-[220px] p-4 rounded-lg flex flex-col gap-4 justify-around items-center bg-gray-900 mx-auto mt-[200px]">
                     <p className="text-white font-semibold text-2xl">Edit Member Record</p>
                     <form action="" className="flex flex-col items-center" autoComplete="off" onSubmit={handleSubmit(submitForm)} >
                         <div className="flex flex-col gap-4 items-center mb-4">

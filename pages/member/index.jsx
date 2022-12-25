@@ -21,7 +21,7 @@ export default function Members({data = []}){
                 router.push('/member')
             }
         })
-        .catch((err)=>{console.error(err)})
+        .catch((err)=>{})
     }
 
     return(
@@ -47,7 +47,7 @@ export default function Members({data = []}){
                                 <Td className="font-medium">{e.member_name}</Td>
                                 <Td className="flex gap-2">
                                     <Link href={`/member/edit/${e.member_id}`} className="w-[70px] h-[30px] bg-green-600 text-white rounded font-semibold flex justify-center items-center">Update</Link>
-                                    <button className="w-[70px] h-[30px] bg-red-500 rounded font-semibold" onClick={()=>{handleDelete(e.member_id)}}>Delete</button>
+                                    <button className="w-[70px] h-[30px] bg-red-500 rounded text-white font-semibold" onClick={()=>{handleDelete(e.member_id)}}>Delete</button>
                                 </Td>
                             </Tr>
                         ))}                                               
@@ -64,7 +64,7 @@ export default function Members({data = []}){
                     <Link href={'/member/add'} className="w-[120px] h-[40px] bg-sky-500 rounded font-semibold flex justify-center items-center text-white" >
                     Add Member
                     </Link>
-                    <Link href={'/'} className="w-[120px] h-[40px] bg-gray-900 rounded font-semibold flex justify-center items-center text-white" >
+                    <Link href={'/'} className="w-[80px] h-[40px] bg-gray-900 rounded font-semibold flex justify-center items-center text-white" >
                     Home
                     </Link>         
                 </div>

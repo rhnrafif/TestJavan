@@ -48,7 +48,7 @@ export default function Add(){
             })           
         }
         catch(error){
-            console.error(error)
+           
         }
     }
 
