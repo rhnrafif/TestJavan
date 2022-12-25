@@ -27,8 +27,8 @@ export default function FamilyAsset({data = [], member}){
 
     return(
         <>
-            <main className='min-w-full min-h-screen bg-slate-100' >
-                <div className="container min-h-screen flex flex-col items-center pt-5 max-w-lg mx-auto">
+            <main className='min-w-full min-h-screen bg-gray-900' >
+                <div className="container min-h-screen bg-slate-100 flex flex-col items-center pt-5 max-w-lg mx-auto">
                     <div className="my-5 mx-auto text-2xl">
                         <p>{member} Asset List</p>
                     </div>  
@@ -68,8 +68,9 @@ export default function FamilyAsset({data = [], member}){
                 
                 </>
                 ) : (
-                <div>
+                <div className="flex flex-col items-center gap-2">
                     <h3 className="font-semibold">No Asset, Please add some records..</h3>
+                    <button className="w-[120px] h-[40px] bg-gray-900 rounded font-semibold text-white" onClick={()=>{router.back()}}>Back</button>
                 </div>)}                    
                 
                 </div>                

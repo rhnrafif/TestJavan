@@ -8,8 +8,8 @@ export default function FamilyAsset({data = []}){
 
     return(
         <>
-            <main className='min-w-full min-h-screen bg-slate-100' >
-                <div className="container min-h-screen flex flex-col items-center pt-5 max-w-lg mx-auto">
+            <main className='min-w-full min-h-screen bg-gray-900' >
+                <div className="container min-h-screen flex flex-col bg-slate-100 items-center pt-5 max-w-lg mx-auto">
                     <div className="my-5 mx-auto text-2xl">
                         <p>Family Asset List</p>
                     </div>  
@@ -51,8 +51,16 @@ export default function FamilyAsset({data = []}){
                 
                 </>
                 ) : (
-                <div>
+                <div className="flex flex-col gap-4">
                     <h3 className="font-semibold">No Asset, Please add some records..</h3>
+                    <div className="mt-5 flex gap-5">
+                        <Link href={'/family-asset/add'} className="w-[120px] h-[40px] bg-sky-500 rounded font-semibold flex justify-center items-center text-white" >
+                        Add Record
+                        </Link>
+                        <Link href={'/'} className="w-[120px] h-[40px] bg-gray-900 rounded font-semibold flex justify-center items-center text-white" >
+                        Home
+                        </Link>         
+                    </div>
                 </div>)}                    
                 
                 </div>                

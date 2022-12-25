@@ -13,10 +13,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='min-w-full min-h-screen bg-slate-100'>
+      <main className='min-w-full min-h-screen bg-gray-900'>
         
-        <div className='container max-w-[380px] h-full pt-12 mx-auto'>
-          <h3 className='text-base text-gray-900 text-center py-5'>Welcome to <br /> Family Member Asset App</h3>
+        <div className='container max-w-[380px] h-screen pt-12 mx-auto bg-slate-100'>
+          <h3 className='text-lg font-semibold text-gray-900 text-center py-5'>Family Member Asset App</h3>
           <div className='w-[300px] h-[400px] rounded-lg flex flex-col mx-auto gap-4 items-center bg-gray-900'>
             <div className='mt-5 mb-5'>
               <p className='text-white text-lg'>Please choose your menu</p>

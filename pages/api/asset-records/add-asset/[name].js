@@ -7,7 +7,8 @@ export default async function handleAdd(req, res){
     try{
         const data = await prisma.asset.findFirst({
             where : {
-                asset_name : req.query.name
+                asset_name : req.query.name,
+                isDeleted : false
             }
         })
 

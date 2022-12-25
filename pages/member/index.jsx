@@ -26,8 +26,8 @@ export default function Members({data = []}){
 
     return(
         <>
-            <main className='min-w-full min-h-screen bg-slate-100' >
-                <div className="container min-h-screen flex flex-col items-center pt-5 max-w-lg mx-auto">
+            <main className='min-w-full min-h-screen bg-gray-900' >
+                <div className="container min-h-screen bg-slate-100 flex flex-col items-center pt-5 max-w-lg mx-auto">
                     <div className="my-5 mx-auto text-2xl">
                         <p>Family Member List</p>
                     </div>  

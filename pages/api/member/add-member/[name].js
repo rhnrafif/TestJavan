@@ -7,7 +7,8 @@ export default async function handleAdd(req, res){
     try{
         const data = await prisma.member.findFirst({
             where : {
-                member_name : req.query.name
+                member_name : req.query.name,
+                isDeleted : false
             }
         })
 
