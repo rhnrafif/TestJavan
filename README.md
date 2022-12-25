@@ -12,10 +12,18 @@ The Family Asset App application is built using the React library with the NextJ
 
 ## Features
 
-- Add, Update, and Delete member of family
-- Add, Update, and Delete assets of family
-- Add and Delete the assets of each family member
-- Get the total of the assets
+- Supabase database connection
+- Build on react-next js
+- Soft delete
+- Fullstack Web Development
+
+## User Flow
+### Member menu
+This menu can add, update and delete the Member data.
+### Asset menu
+This menu can add, update and delete the Asset data.
+### Family Member Asset menu
+By using the Family Member asset menu, you can create assets and their owners directly. If the member was not created yet, this menu will create the member data automatically, along with the asset data. 
 
 ## Live Family Asset App
 Visit the [link](https://family-asset.vercel.app/) to the Family Asset app on vercel
