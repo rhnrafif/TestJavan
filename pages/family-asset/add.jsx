@@ -36,8 +36,8 @@ export default function Add(){
                     price = 0
                 }
 
-                await axios.post(`https://family-asset.vercel.app/api/member/add-member/${e.name}`).then(()=>{})
-                await axios.post(`https://family-asset.vercel.app/api/asset-records/add-asset/${e.asset}`).then(()=>{})
+                await axios.get(`https://family-asset.vercel.app/api/member/add-member/${e.name}`).then(()=>{})
+                await axios.get(`https://family-asset.vercel.app/api/asset-records/add-asset/${e.asset}`).then(()=>{})
 
                 const data = {
                 name : e.name,
@@ -45,7 +45,7 @@ export default function Add(){
                 price : price
                 }
 
-                await axios.post("https://family-asset.vercel.app/api/family-asset/add", data)
+                await axios.post("http://localhost:3000/api/family-asset/add", data)
                 .then((res)=>{
                     if(res.status === 201){
                         setIsLoading(!isLoading);
