@@ -26,7 +26,7 @@ export default async function handleAdd(req, res){
         res.status(200).json({ message : data.asset_name })        
     }
     catch(error){
-        res.status(500).json({ message : "Error" })
+        res.status(200).json({ })
     }
 
 }
