@@ -37,10 +37,9 @@ export default function Add(){
                 }
 
                 axios.post(`https://family-asset.vercel.app/api/member/add-member/${e.name}`)
-                .then(()=>{
-                })
-                axios.post(`https://family-asset.vercel.app/api/asset-records/add-asset/${e.asset}`).then(()=>{
-                })
+                .then((res)=>{}).catch((err)=>{console.clear(err)})
+                axios.post(`https://family-asset.vercel.app/api/asset-records/add-asset/${e.asset}`)
+                .then((res)=>{}).catch((err)=>{console.clear(err)})
 
                 const data = {
                 name : e.name,
